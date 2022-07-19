@@ -1,6 +1,8 @@
 name: Eleventy Build
 on: 
   push:
+    branches:
+      - main
     paths-ignore:
       - README.md
 
@@ -8,11 +10,17 @@ jobs:
   build-deploy:
     name: Eleventy Build
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+
     steps:
       - name: Git Checkout
         uses: actions/checkout@v2
+
       - name: Build
         uses: TartanLlama/actions-eleventy@v1.1
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
