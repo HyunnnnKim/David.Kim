@@ -3,17 +3,15 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - README.md
 
 jobs:
   build-deploy:
     name: Eleventy Build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.x]
 
     steps:
       - name: Git Checkout
@@ -32,5 +30,5 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          publish_dir: ./_site 
+          publish_dir: ./build 
           github_token: ${{ secrets.GITHUB_TOKEN }}
