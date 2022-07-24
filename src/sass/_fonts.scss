@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: "JetBrains Mono";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local("UJetBrains Mono Regular"), local("JetBrainsMono-Regular"),
+        url(../fonts/JetBrainsMono-Regular.woff2)
+        format("woff2");
+}
